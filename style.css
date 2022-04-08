@@ -1,0 +1,118 @@
+:root {
+  /*Cores*/
+
+  --blue: #2a7ae4;
+  --blue-light: #eaf2fd;
+  --black: #464646;
+  --black-medium: #a2a2a2;
+  --black-light: #f5f5f5;
+  --white: #fff;
+
+  /*Fonte*/
+
+  --fs-700: 52px;
+  --fs-600: 22px;
+  --fs-500: 16px;
+  --fs-400: 14px;
+
+  /*Fonte Weight*/
+
+  --fw-500: 500;
+  --fw-700: 700;
+  --fw-400: 400;
+}
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+li,
+a,
+button,
+input {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: var(--white);
+  line-height: 1.5;
+}
+.container {
+  max-width: 1136px;
+  padding-inline: 32px;
+  margin-inline: auto;
+}
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 32px;
+}
+.navbar__content {
+  display: flex;
+  gap: 32px;
+}
+.navbar__content-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.navbar__content-logo-text {
+  color: var(--blue);
+  font-size: var(--fs-600);
+  font-weight: var(--fw-700);
+}
+.navbar__content-logo-text span {
+  color: var(--black);
+}
+.navbar__btn-login {
+  background: none;
+  border: none;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-weight: var(--fw-400);
+  font-size: var(--fs-500);
+  padding: 16px 70px;
+  cursor: pointer;
+  transition: background-color 300ms ease-out;
+}
+.navbar__btn-login:hover {
+  background-color: var(--blue-light);
+}
+.navbar__content-search {
+  position: relative;
+}
+.navbar__content-search--box {
+  border: none;
+  background-color: var(--black-light);
+  border-radius: 20px;
+  padding-block: 12px;
+  text-indent: 16px;
+  width: 393px;
+}
+.navbar__content-search--box::placeholder {
+  color: var(--black-medium);
+  font-weight: var(--fw-400);
+  font-size: var(--fs-400);
+}
+.navbar__content-search--box:focus {
+  outline: none;
+}
+.navbar__content-search-icon {
+  position: absolute;
+  right: 20px;
+  top: 11px;
+  color: var(--black-medium);
+  width: 17px;
+  height: 17px;
+}
