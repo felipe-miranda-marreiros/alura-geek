@@ -2,6 +2,7 @@
   /*Cores*/
 
   --blue: #2a7ae4;
+  --blue-medium: #5595e9;
   --blue-light: #eaf2fd;
   --black: #464646;
   --black-medium: #a2a2a2;
@@ -51,6 +52,18 @@ body {
   max-width: 1136px;
   padding-inline: 32px;
   margin-inline: auto;
+}
+.btn {
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: var(--fw-400);
+  font-size: var(--fs-500);
+  transition: background-color 300ms ease-out;
+  padding: 16px;
+  width: fit-content;
+}
+.btn:hover {
+  background-color: var(--blue-medium);
 }
 .navbar__container {
   display: flex;
@@ -115,4 +128,24 @@ body {
   color: var(--black-medium);
   width: 17px;
   height: 17px;
+}
+.hero {
+  background: url("./src/img/background-hero.png") no-repeat center;
+  background-size: cover;
+  height: 352px;
+}
+.hero__content {
+  padding-top: 115px;
+  margin-bottom: 32px;
+  font-weight: var(--fw-700);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hero__content-title {
+  font-size: var(--fs-700);
+}
+.hero__content-paragraph {
+  font-size: var(--fs-600);
 }
