@@ -164,7 +164,6 @@ textarea {
   margin-top: 16px;
 }
 .products-section__container {
-  margin-top: 64px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   column-gap: 16px;
@@ -175,7 +174,7 @@ textarea {
 .products-section__main-info {
   display: flex;
   justify-content: space-between;
-  grid-column: 1 / -1;
+  margin-top: 64px;
   margin-bottom: 16px;
 }
 .products-section__item {
