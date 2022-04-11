@@ -322,6 +322,13 @@ textarea {
     grid-column: span 2;
     margin-left: 94px;
   }
+  .item--6,
+  .item--5 {
+    display: none;
+  }
+  .products-section__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 @media only screen and (max-width: 700px) {
   .navbar__content-search-input,
@@ -356,5 +363,12 @@ textarea {
   }
   .footer__link {
     gap: 11px;
+  }
+  .item--4,
+  .item--3 {
+    display: none;
+  }
+  .products-section__container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
