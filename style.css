@@ -383,6 +383,61 @@ img {
 .mg-clear-bottom:last-child {
   margin-bottom: 0;
 }
+.form-add-product {
+  background-color: var(--black-light);
+  padding-block: 64px;
+  display: flex;
+}
+input[type="file"] {
+  display: none;
+}
+.form__inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 16px;
+  column-gap: 38px;
+}
+.upload-label {
+  cursor: pointer;
+  border: 1px solid var(--blue-medium);
+  padding: 16px;
+}
+.form__local-upload {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+.form-description {
+  grid-row: 4;
+}
+.form-name {
+  margin-top: 16px;
+}
+.form-price,
+.form-name,
+.form-description {
+  grid-column: 1 / -1;
+}
+.name,
+.price,
+.description {
+  padding: 8px 0 16px 12px;
+  border: none;
+  resize: none;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+.form__add--btn {
+  margin-top: 10px;
+}
+.form-add-product__title {
+  font-size: clamp(var(--fs-600), 3vw, var(--fs-700));
+  font-weight: var(--fw-700);
+  color: var(--black);
+  margin-bottom: 16px;
+}
+.form__add--btn {
+  width: 100%;
+}
 @media only screen and (max-width: 1250px) {
   .container {
     padding-inline: 32px;
@@ -431,6 +486,16 @@ img {
   .products-section__item-img {
     width: 164px;
   }
+  .form-add-product__container {
+    width: 100%;
+  }
+  .form__inputs {
+    column-gap: 0;
+  }
+  .form__local-upload {
+    grid-column: 2 / -1;
+    display: flex;
+  }
 }
 @media only screen and (max-width: 700px) {
   .navbar__content-search-input,
@@ -449,6 +514,12 @@ img {
   }
   .product__img {
     justify-self: center;
+  }
+  .upload-label {
+    max-width: 100%;
+  }
+  .form__local-upload {
+    grid-column: 1 / -1;
   }
 }
 @media only screen and (max-width: 512px) {
@@ -488,6 +559,13 @@ img {
   .item--2 {
     grid-row: 1;
   }
+  .footer__form {
+    margin-top: 0;
+  }
+  .upload-label {
+    margin: 0;
+    order: 2;
+  }
 }
 @media only screen and (max-width: 480px) {
   .product-section__all--container,
@@ -519,6 +597,21 @@ img {
   .products-section__item-img {
     max-width: 147.5px;
     height: 174px;
+  }
+  .form-add-product__container {
+    width: 100%;
+  }
+  .form-add-product {
+    padding-block: 16px;
+  }
+  .form__local-upload {
+    display: none;
+  }
+  .form-drag {
+    grid-column: 1 / -1;
+  }
+  .form-drag img {
+    width: 100%;
   }
 }
 @media only screen and (max-width: 390px) {
