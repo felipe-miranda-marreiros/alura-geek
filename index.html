@@ -11,10 +11,12 @@
   <body>
     <nav class="navbar__container container">
       <div class="navbar__content">
-        <div class="navbar__content-logo">
-          <img src="./src/img/logo.png" alt="Logo" />
-          <p class="navbar__content-logo-text">Alura<span>Geek</span></p>
-        </div>
+        <a href="#home">
+          <div class="navbar__content-logo">
+            <img src="./src/img/logo.png" alt="Logo" />
+            <p class="navbar__content-logo-text">Alura<span>Geek</span></p>
+          </div>
+        </a>
         <form action="#" class="navbar__form">
           <div class="navbar__content-search">
             <input
@@ -30,19 +32,10 @@
           </div>
         </form>
       </div>
-      <button class="navbar__btn-login">Login</button>
+      <a href="#login" class="navbar__btn-login">Login</a>
     </nav>
-    <!-- <header class="hero">
-      <div class="hero__content container">
-        <h1 class="hero__content-title">Dezembro Promocional</h1>
-        <p class="hero__content-paragraph">
-          Produtos selecionados com 33% de desconto
-        </p>
-        <a class="hero__content-btn btn" href="#">Ver Consoles</a>
-      </div>
-    </header> -->
-    <main>
-      <form action="#" class="form-add-product">
+    <main id="app">
+      <!-- <form action="#" class="form-add-product">
         <div class="form-add-product__container container">
           <h2 class="form-add-product__title">Adicionar novo produto</h2>
           <ul class="form__inputs">
@@ -73,7 +66,8 @@
           </ul>
           <button class="form__add--btn btn">Adicionar produto</button>
         </div>
-      </form>
+      </form> -->
+
       <!-- <section class="product-section__all">
         <div class="container">
           <div class="products-section__main-info mg-clear-top">
