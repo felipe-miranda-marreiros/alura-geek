@@ -17,7 +17,7 @@ const Home = async () => {
         <a class="hero__content-btn btn" href="#consoles">Ver Consoles</a>
       </div>
     </header>
-      <div class="container">
+      <div class="all-products__container container">
         <section>
           <div class="products-section__main-info">
             <h2 class="products-section__title">Star Wars</h2>
@@ -29,7 +29,7 @@ const Home = async () => {
           </section>
           <section>
           <div class="products-section__main-info">
-            <h2 class="products-section__title">Star Wars</h2>
+            <h2 class="products-section__title">Consoles</h2>
             <a href="#products" class="products-section__item-link">Ver tudo &xrarr;</a>
         </div>
             <section class="products-section__container">
@@ -38,7 +38,7 @@ const Home = async () => {
           </section>
           <section>
           <div class="products-section__main-info">
-            <h2 class="products-section__title">Star Wars</h2>
+            <h2 class="products-section__title">Diversos</h2>
             <a href="#products" class="products-section__item-link">Ver tudo &xrarr;</a>
         </div>
             <section class="products-section__container">
