@@ -1,13 +1,11 @@
-import productItemEl from "../Components.js";
-import model from "../model.js";
+import components from "../Components.js";
+import model from "../Model.js";
 
 const Home = async () => {
   const starWars = await model.filteredSections("Star Wars");
   const consoles = await model.filteredSections("Consoles");
   const diversos = await model.filteredSections("Diversos");
-
-  try {
-    const html = `
+  const html = `
     <header class="hero">
     <div class="hero__content container">
         <h1 class="hero__content-title">Dezembro Promocional</h1>
@@ -24,7 +22,9 @@ const Home = async () => {
             <a href="#products" class="products-section__item-link">Ver tudo &xrarr;</a>
         </div>
             <section class="products-section__container">
-              ${starWars.map((product) => productItemEl(product)).join("")}
+              ${starWars
+                .map((product) => components.productItemEl(product))
+                .join("")}
             </section>
           </section>
           <section>
@@ -33,7 +33,9 @@ const Home = async () => {
             <a href="#products" class="products-section__item-link">Ver tudo &xrarr;</a>
         </div>
             <section class="products-section__container">
-            ${consoles.map((product) => productItemEl(product)).join("")}
+            ${consoles
+              .map((product) => components.productItemEl(product))
+              .join("")}
             </section>
           </section>
           <section>
@@ -42,14 +44,13 @@ const Home = async () => {
             <a href="#products" class="products-section__item-link">Ver tudo &xrarr;</a>
         </div>
             <section class="products-section__container">
-            ${diversos.map((product) => productItemEl(product)).join("")}
+            ${diversos
+              .map((product) => components.productItemEl(product))
+              .join("")}
             </section>
           </section>
         </div>
         `;
-    return html;
-  } catch (error) {
-    console.log(error);
-  }
+  return html;
 };
 export default Home;
