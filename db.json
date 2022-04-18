@@ -144,5 +144,11 @@
       "alt": "Product",
       "section": "Diversos"
     }
+  ],
+  "users": [
+    {
+      "email": "admin@geek.com",
+      "password": 1234
+    }
   ]
 }

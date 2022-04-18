@@ -1,35 +1,40 @@
-const state = {
-  productsData: {},
-  productDescription: {},
+export const state = {
+  products: {},
+  productItem: {},
+  productSection: {},
+  userData: {},
+  userAdminStatus: false,
 };
 
-(async () => {
-  const response = await fetch("http://localhost:3000/products/");
-  const products = await response.json();
-  state.productsData = products;
-})();
+export const loadProducts = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/products");
+    const data = await response.json();
+    state.products = data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-const filteredSections = async (section) => {
+export const filteredSections = async (section) => {
   const response = await fetch("http://localhost:3000/products/");
-  const products = await response.json();
-  const filter = products.filter((product) =>
+  const data = await response.json();
+  const filter = data.filter((product) =>
     product.section === `${section}` ? product.section : undefined
   );
   return filter;
 };
 
-const productDescription = async (id) => {
+export const productDescription = async (id) => {
   if (!id) return;
-  let newId = Number(id);
-  const response = await fetch(`http://localhost:3000/products/${newId}`);
+  let productId = Number(id);
+  const response = await fetch(`http://localhost:3000/products/${productId}`);
   const data = await response.json();
-  return data;
+  state.productItem = data;
 };
 
-const model = {
-  filteredSections,
-  productDescription,
-  state,
+export const loadLoginData = async () => {
+  const response = await fetch(`http://localhost:3000/users/`);
+  const data = await response.json();
+  state.userData = data;
 };
-
-export default model;

@@ -1,18 +1,44 @@
-import components from "../Components.js";
-import model from "../Model.js";
+import { productItemEl } from "../components/product";
 
-const Home = async () => {
-  const starWars = await model.filteredSections("Star Wars");
-  const consoles = await model.filteredSections("Consoles");
-  const diversos = await model.filteredSections("Diversos");
-  const html = `
+class ProductView {
+  #App = document.getElementById("app");
+  #sections;
+
+  render(data) {
+    this.#sections = data;
+    this.#App.innerHTML = "";
+    this.#App.insertAdjacentHTML("afterbegin", this.#generateMarkup());
+  }
+
+  addHandlerRender(handler) {
+    ["hashchange", "load"].forEach((event) =>
+      window.addEventListener(event, () => {
+        if (
+          window.location.href.includes("#home") ||
+          window.location.href === "http://localhost:1234/"
+        ) {
+          document.location.hash = "#home";
+          handler.controlProducts();
+        } else if (
+          !window.location.href.includes("#products") &&
+          !window.location.href.includes("#login") &&
+          !window.location.href.includes("#addproduct")
+        ) {
+          handler.controlProductDescription();
+        }
+      })
+    );
+  }
+
+  #generateMarkup() {
+    return `
     <header class="hero">
     <div class="hero__content container">
         <h1 class="hero__content-title">Dezembro Promocional</h1>
         <p class="hero__content-paragraph">
           Produtos selecionados com 33% de desconto
         </p>
-        <a class="hero__content-btn btn" href="#consoles">Ver Consoles</a>
+        <a class="hero__content-btn btn" href="#home">Ver Consoles</a>
       </div>
     </header>
       <div class="all-products__container container">
@@ -22,8 +48,8 @@ const Home = async () => {
             <a href="#products" class="products-section__item-link">Ver tudo &xrarr;</a>
         </div>
             <section class="products-section__container">
-              ${starWars
-                .map((product) => components.productItemEl(product))
+              ${this.#sections[0]
+                .map((product) => productItemEl(product))
                 .join("")}
             </section>
           </section>
@@ -33,8 +59,8 @@ const Home = async () => {
             <a href="#products" class="products-section__item-link">Ver tudo &xrarr;</a>
         </div>
             <section class="products-section__container">
-            ${consoles
-              .map((product) => components.productItemEl(product))
+            ${this.#sections[1]
+              .map((product) => productItemEl(product))
               .join("")}
             </section>
           </section>
@@ -44,13 +70,14 @@ const Home = async () => {
             <a href="#products" class="products-section__item-link">Ver tudo &xrarr;</a>
         </div>
             <section class="products-section__container">
-            ${diversos
-              .map((product) => components.productItemEl(product))
+            ${this.#sections[2]
+              .map((product) => productItemEl(product))
               .join("")}
             </section>
           </section>
         </div>
         `;
-  return html;
-};
-export default Home;
+  }
+}
+
+export default new ProductView();

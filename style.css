@@ -445,6 +445,9 @@ input[type="file"] {
   gap: 16px;
   margin-bottom: 16px;
 }
+.hidden {
+  display: none;
+}
 @media only screen and (max-width: 1250px) {
   .container {
     padding-inline: 32px;

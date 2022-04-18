@@ -1,19 +1,14 @@
 {
-  "name": "alura-geek",
+  "name": "ecommerce",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/felipe-miranda-marreiros/alura-geek.git"
-  },
-  "author": "",
+  "author": "Felipe Miranda Marreiros",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/felipe-miranda-marreiros/alura-geek/issues"
-  },
-  "homepage": "https://github.com/felipe-miranda-marreiros/alura-geek#readme"
+  "devDependencies": {
+    "parcel": "^2.4.1"
+  }
 }
