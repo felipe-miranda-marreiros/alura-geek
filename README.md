@@ -23,3 +23,10 @@ Em seguida:
 ```js
 json-server --watch db.json
 ```
+
+### Login
+
+```
+email: admin@geek.com
+senha: 1234
+```
