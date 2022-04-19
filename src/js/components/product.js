@@ -1,4 +1,15 @@
-export const productItemEl = (products, section) => {
+import deleteButtom from "../../img/delete-buttom.png";
+import editButtom from "../../img/edit-buttom.png";
+
+export const productItemEl = (products, section, adminStatus) => {
+  const adminMenu = (id) => {
+    return `
+    <div class="admin-menu">
+        <img src=${deleteButtom} class="admin-menu__delete admin-btn" alt="" title="Deletar" data-id=${id}></img>
+        <img src=${editButtom} class="admin-menu__edit admin-btn" alt="" title="Editar" data-id=${id}></img>
+        </div>
+    `;
+  };
   return `<div class="products-section__item item--${products.id}">
         <img
           src=${products.imageUrl}
@@ -9,6 +20,7 @@ export const productItemEl = (products, section) => {
               : "products-section__item-img"
           }
         />
+        ${adminStatus ? adminMenu(products.id) : ""}
         <h3 class="products-section__item-title">${products.name}</h3>
         <p class="products-section__item-price">R$ ${Number(products.price)
           .toFixed(2)

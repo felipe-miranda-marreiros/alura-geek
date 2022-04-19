@@ -45,7 +45,7 @@ class AddProduct {
           <li class="form-description">
             <textarea
               placeholder="Descrição do produto"
-              class="description"
+              class="description input-item"
             ></textarea>
           </li>
         </ul>

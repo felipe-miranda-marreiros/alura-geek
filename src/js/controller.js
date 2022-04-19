@@ -31,7 +31,10 @@ const controlProducts = async () => {
 
 const controlAllProducts = async () => {
   await model.loadProducts();
-  allProductsView.render(model.state.products);
+  allProductsView.render(
+    model.state.products,
+    window.localStorage.getItem("admin")
+  );
   const btnAddProduct = document.querySelector(".products-section__btn--add");
   if (window.localStorage.getItem("admin"))
     btnAddProduct.classList.remove("hidden");
@@ -62,13 +65,26 @@ const controlLogin = async () => {
   });
 };
 
-const controlAddProduct = async () => {
+const controlAddProduct = () => {
   addProductView.render(window.localStorage.getItem("admin"));
 };
 
-const controlAdminAccess = async () => {
+const controlAdminAccess = () => {
   adminView.render(window.localStorage.getItem("admin"));
 };
+const controlProductOptions = () => {
+  window.addEventListener("click", async (event) => {
+    if (event.target.className.includes("admin-btn")) {
+      let id = event.target.getAttribute("data-id");
+      const option = confirm("Deseja realmente excluir o produto?");
+      if (option) {
+        await model.deleteProduct(id);
+        window.location.reload();
+      }
+    }
+  });
+};
+
 const productControllers = {
   controlProducts,
   controlProductDescription,
@@ -80,6 +96,7 @@ const init = () => {
   loginView.addHandlerRender(controlLogin);
   addProductView.addHandlerRender(controlAddProduct);
   controlAdminAccess();
+  controlProductOptions();
 };
 
 init();

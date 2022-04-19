@@ -3,8 +3,10 @@ import { productItemEl } from "../components/product";
 class AllProducts {
   #App = document.getElementById("app");
   #products;
+  #adminStatus;
 
-  render(data) {
+  render(data, adminStatus) {
+    this.#adminStatus = adminStatus;
     this.#products = data;
     this.#App.innerHTML = this.#generateMarkup();
   }
@@ -33,7 +35,9 @@ class AllProducts {
         <div class="product-section__all--container container">
           <section class="product-section__all--container mg-clear-bottom">
             ${this.#products
-              .map((product) => productItemEl(product, "allProducts"))
+              .map((product) =>
+                productItemEl(product, "allProducts", this.#adminStatus)
+              )
               .join("")}
           </section>
         </div>

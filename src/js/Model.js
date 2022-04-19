@@ -38,3 +38,11 @@ export const loadLoginData = async () => {
   const data = await response.json();
   state.userData = data;
 };
+
+export const deleteProduct = async (id) => {
+  if (!id) return;
+  let productId = Number(id);
+  return await fetch(`http://localhost:3000/products/${productId}`, {
+    method: "DELETE",
+  });
+};

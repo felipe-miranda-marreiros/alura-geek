@@ -11,7 +11,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/plG6Tvb.png",
-      "price": 60.0,
+      "price": 60,
       "id": 2,
       "alt": "Product",
       "section": "Star Wars"
@@ -19,7 +19,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/qaxWVqL.png",
-      "price": 60.0,
+      "price": 60,
       "id": 3,
       "alt": "Product",
       "section": "Star Wars"
@@ -27,7 +27,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/8xAcJU0.png",
-      "price": 60.0,
+      "price": 60,
       "id": 4,
       "alt": "Product",
       "section": "Star Wars"
@@ -35,7 +35,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/SOx6Ste.png",
-      "price": 60.0,
+      "price": 60,
       "id": 5,
       "alt": "Product",
       "section": "Star Wars"
@@ -43,7 +43,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/dM5IKQa.png",
-      "price": 60.0,
+      "price": 60,
       "id": 6,
       "alt": "Product",
       "section": "Star Wars"
@@ -51,7 +51,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/ShkchuV.png",
-      "price": 60.0,
+      "price": 60,
       "id": 7,
       "alt": "Product",
       "section": "Consoles"
@@ -59,7 +59,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/9hBfsnO.png",
-      "price": 60.0,
+      "price": 60,
       "id": 8,
       "alt": "Product",
       "section": "Consoles"
@@ -67,7 +67,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/uBIhWpc.png",
-      "price": 60.0,
+      "price": 60,
       "id": 9,
       "alt": "Product",
       "section": "Consoles"
@@ -75,7 +75,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/aWUCD01.png",
-      "price": 60.0,
+      "price": 60,
       "id": 10,
       "alt": "Product",
       "section": "Consoles"
@@ -83,7 +83,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/VDlOg5t.png",
-      "price": 60.0,
+      "price": 60,
       "id": 11,
       "alt": "Product",
       "section": "Consoles"
@@ -91,7 +91,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/LF4MOd7.png",
-      "price": 60.0,
+      "price": 60,
       "id": 12,
       "alt": "Product",
       "section": "Consoles"
@@ -99,7 +99,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/CneiBSu.png",
-      "price": 60.0,
+      "price": 60,
       "id": 13,
       "alt": "Product",
       "section": "Diversos"
@@ -107,7 +107,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/VFNEy4R.png",
-      "price": 60.0,
+      "price": 60,
       "id": 14,
       "alt": "Product",
       "section": "Diversos"
@@ -115,7 +115,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/oxHbBCr.png",
-      "price": 60.0,
+      "price": 60,
       "id": 15,
       "alt": "Product",
       "section": "Diversos"
@@ -123,7 +123,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/IRmnVZA.png",
-      "price": 60.0,
+      "price": 60,
       "id": 16,
       "alt": "Product",
       "section": "Diversos"
@@ -131,7 +131,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/wx77SUM.png",
-      "price": 60.0,
+      "price": 60,
       "id": 17,
       "alt": "Product",
       "section": "Diversos"
@@ -139,7 +139,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/b9zmGK7.png",
-      "price": 60.0,
+      "price": 60,
       "id": 18,
       "alt": "Product",
       "section": "Diversos"
