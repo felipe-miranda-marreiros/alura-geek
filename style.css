@@ -11,6 +11,7 @@
   --black: #464646;
   --black-medium: #a2a2a2;
   --black-light: #f5f5f5;
+  --grey: #c8c8c8;
   --white: #fff;
 
   /*Font-size*/
@@ -418,7 +419,7 @@ input[type="file"] {
   color: var(--blue);
   font-weight: var(--fw-400);
 }
-li > input{
+li > input {
   font-size: var(--fs-300);
 }
 .form__local-upload {
@@ -446,6 +447,10 @@ li > input{
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
+.name,
+.price {
+  height: 56px;
+}
 .form__add--btn {
   margin-top: 10px;
 }
@@ -466,6 +471,39 @@ li > input{
 }
 .hidden {
   display: none;
+}
+.form-drag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  width: 282px;
+  text-align: center;
+  gap: 16px;
+  border: 2px dashed var(--grey);
+  background-color: var(--white);
+  cursor: pointer;
+  position: relative;
+}
+.form-drag::after {
+  position: absolute;
+  content: "Ou";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translate(150%, 40%);
+  color: var(--black);
+}
+.form-drag p {
+  color: var(--black-medium);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-400);
+}
+.form-drag--active {
+  border-color: var(--blue);
+}
+.form-drag--invalid {
+  border-color: red;
 }
 @media only screen and (max-width: 1250px) {
   .container {
@@ -553,6 +591,9 @@ li > input{
   }
   .form__local-upload {
     grid-column: 1 / -1;
+  }
+  .form-drag::after {
+    display: none;
   }
 }
 @media only screen and (max-width: 512px) {
@@ -647,12 +688,19 @@ li > input{
   }
   .form-drag {
     grid-column: 1 / -1;
+    justify-self: center;
   }
-  .form-drag img {
+  .form-drag {
     width: 100%;
   }
   .all-products--img {
     max-width: 170px;
+  }
+  .upload-label {
+    display: none;
+  }
+  .drop {
+    display: none;
   }
 }
 @media only screen and (max-width: 393px) {

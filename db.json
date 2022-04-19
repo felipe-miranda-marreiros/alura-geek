@@ -3,7 +3,7 @@
     {
       "name": "Produto XYZ",
       "imageUrl": "https://i.imgur.com/Dx0jjd0.png",
-      "price": 60.0,
+      "price": 60,
       "id": 1,
       "alt": "Product",
       "section": "Star Wars"

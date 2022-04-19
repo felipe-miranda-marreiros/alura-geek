@@ -65,8 +65,9 @@ const controlLogin = async () => {
   });
 };
 
-const controlAddProduct = () => {
+const controlAddProduct = async () => {
   addProductView.render(window.localStorage.getItem("admin"));
+  addProductView.getImageFromDrag(model.createNewProduct);
 };
 
 const controlAdminAccess = () => {

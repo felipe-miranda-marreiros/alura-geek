@@ -46,3 +46,15 @@ export const deleteProduct = async (id) => {
     method: "DELETE",
   });
 };
+
+export const createNewProduct = async (productInfo) => {
+  return await fetch(`http://localhost:3000/products/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      imageUrl: productInfo,
+    }),
+  });
+};
