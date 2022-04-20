@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel --no-cache index.html",
     "build": "parcel build index.html"
   },
   "author": "Felipe Miranda Marreiros",

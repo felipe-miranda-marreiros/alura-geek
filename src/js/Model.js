@@ -54,7 +54,10 @@ export const createNewProduct = async (productInfo) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      imageUrl: productInfo,
+      name: productInfo.productName,
+      imageUrl: productInfo.productImage,
+      price: productInfo.productPrice,
+      alt: "Product",
     }),
   });
 };

@@ -54,7 +54,7 @@ const controlLogin = async () => {
     ) {
       model.state.userAdminStatus = true;
       window.localStorage.setItem("admin", model.state.userAdminStatus);
-      window.location.hash = "#products";
+      window.location.hash = "#addproducts";
       window.location.reload();
       mail.value = "";
       password.value = "";
@@ -67,7 +67,8 @@ const controlLogin = async () => {
 
 const controlAddProduct = async () => {
   addProductView.render(window.localStorage.getItem("admin"));
-  addProductView.getImageFromDrag(model.createNewProduct);
+  addProductView.getImage();
+  addProductView.sendFormData(model.createNewProduct);
 };
 
 const controlAdminAccess = () => {
