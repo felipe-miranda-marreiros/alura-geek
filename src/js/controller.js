@@ -38,6 +38,9 @@ const controlAllProducts = async () => {
   const btnAddProduct = document.querySelector(".products-section__btn--add");
   if (window.localStorage.getItem("admin"))
     btnAddProduct.classList.remove("hidden");
+
+  adminView.deleteProduct(model.deleteProduct);
+  adminView.editProduct(model.editProduct);
 };
 
 const controlLogin = async () => {
@@ -65,27 +68,17 @@ const controlLogin = async () => {
   });
 };
 
-const controlAddProduct = async () => {
+const controlAddProduct = () => {
   addProductView.render(window.localStorage.getItem("admin"));
   addProductView.getImage();
-  addProductView.sendFormData(model.createNewProduct);
+  addProductView.editProduct(model.state.currentProduct);
+  addProductView.sendFormData(model.createNewProduct, model.updateProduct);
 };
 
 const controlAdminAccess = () => {
   adminView.render(window.localStorage.getItem("admin"));
 };
-const controlProductOptions = () => {
-  window.addEventListener("click", async (event) => {
-    if (event.target.className.includes("admin-btn")) {
-      let id = event.target.getAttribute("data-id");
-      const option = confirm("Deseja realmente excluir o produto?");
-      if (option) {
-        await model.deleteProduct(id);
-        window.location.reload();
-      }
-    }
-  });
-};
+const controlProductOptions = () => {};
 
 const productControllers = {
   controlProducts,

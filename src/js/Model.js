@@ -4,6 +4,7 @@ export const state = {
   productSection: {},
   userData: {},
   userAdminStatus: false,
+  currentProduct: {},
 };
 
 export const loadProducts = async () => {
@@ -41,10 +42,35 @@ export const loadLoginData = async () => {
 
 export const deleteProduct = async (id) => {
   if (!id) return;
-  let productId = Number(id);
-  return await fetch(`http://localhost:3000/products/${productId}`, {
+  state.products.splice(0, id);
+  return await fetch(`http://localhost:3000/products/${+id}`, {
     method: "DELETE",
   });
+};
+
+export const editProduct = async (id) => {
+  if (!id) return;
+  let productId = Number(id);
+  const response = await fetch(`http://localhost:3000/products/${productId}`);
+  const data = await response.json();
+  state.currentProduct = data;
+};
+
+export const updateProduct = async (productInfo) => {
+  return await fetch(
+    `http://localhost:3000/products/${state.currentProduct.id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: productInfo.productName,
+        price: productInfo.productPrice,
+        description: productInfo.productDescription,
+      }),
+    }
+  );
 };
 
 export const createNewProduct = async (productInfo) => {
@@ -58,6 +84,7 @@ export const createNewProduct = async (productInfo) => {
       imageUrl: productInfo.productImage,
       price: productInfo.productPrice,
       alt: "Product",
+      description: productInfo.productDescription,
     }),
   });
 };

@@ -7,7 +7,12 @@ class AddProduct {
     productName: "",
     productPrice: "",
     productDescription: "",
-    id: "",
+  };
+
+  #formEdit = {
+    productName: "",
+    productPrice: "",
+    productDescription: "",
   };
 
   render() {
@@ -84,37 +89,59 @@ class AddProduct {
     });
   }
 
-  sendFormData(handler) {
+  sendFormData(create, update) {
     const formAddProduct = document.querySelector(".form-add-product");
     const dragStatus = document.getElementById("form-drag--status");
     const dragForm = document.querySelector(".form-drag");
+    const uploadLabelEl = document.querySelector(".upload-label");
+    let name = document.querySelector(".name");
+    let price = document.querySelector(".price");
+    let description = document.querySelector(".description");
+
+    console.log(
+      Object.values(this.#formEdit).every((property) => property === "")
+    );
 
     formAddProduct.addEventListener("submit", (event) => {
       event.preventDefault();
-      if (this.#formData.productImage === "") {
-        alert("Adicione uma imagem ao produto.");
-      } else {
-        let name = document.querySelector(".name");
-        let price = document.querySelector(".price");
-        let description = document.querySelector(".description");
-
+      if (Object.values(this.#formEdit).every((property) => property === "")) {
         this.#formData.productName = name.value;
         this.#formData.productPrice = price.value;
         this.#formData.productDescription = description.value;
-
-        handler(this.#formData);
-
-        name.value = "";
-        price.value = "";
-        description.value = "";
-        dragStatus.innerText =
-          "Arraste para adicionar uma imagem para o produto";
-        dragForm.classList.remove("form-drag--active");
+        create(this.#formData);
         alert("Produto adicionado.");
-        uploadLabelEl.innerText = "Procure no seu computador";
-        window.location.href = "#products";
+      } else {
+        this.#formEdit.productName = name.value;
+        this.#formEdit.productPrice = price.value;
+        this.#formEdit.productDescription = description.value;
+        update(this.#formEdit);
+        alert("Produto atualizado.");
       }
+
+      name.value = "";
+      price.value = "";
+      description.value = "";
+      dragStatus.innerText = "Arraste para adicionar uma imagem para o produto";
+      dragForm.classList.remove("form-drag--active");
+      uploadLabelEl.innerText = "Procure no seu computador";
+      window.location.href = "#products";
     });
+  }
+
+  editProduct(data) {
+    let name = document.querySelector(".name");
+    let price = document.querySelector(".price");
+    let description = document.querySelector(".description");
+
+    if (!data.name && !data.price && !data.description) return;
+
+    name.value = data.name;
+    price.value = data.price;
+    description.value = data.description;
+
+    this.#formEdit.productName = name.value;
+    this.#formEdit.productPrice = price.value;
+    this.#formEdit.productDescription = description.value;
   }
 
   addHandlerRender(handler) {
