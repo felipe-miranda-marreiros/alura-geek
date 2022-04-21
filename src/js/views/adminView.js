@@ -15,10 +15,8 @@ class Admin {
     window.addEventListener("click", (event) => {
       if (event.target.className.includes("admin-menu__delete")) {
         const id = event.target.getAttribute("data-id");
-        if (confirm("Deseja realmente excluir o produto?")) {
-          deleteCurrentProduct(id);
-          window.location.reload();
-        }
+        deleteCurrentProduct(id);
+        window.location.reload();
       }
     });
   }

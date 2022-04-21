@@ -42,7 +42,6 @@ export const loadLoginData = async () => {
 
 export const deleteProduct = async (id) => {
   if (!id) return;
-  state.products.splice(0, id);
   return await fetch(`http://localhost:3000/products/${+id}`, {
     method: "DELETE",
   });
@@ -54,9 +53,11 @@ export const editProduct = async (id) => {
   const response = await fetch(`http://localhost:3000/products/${productId}`);
   const data = await response.json();
   state.currentProduct = data;
+  console.log(state.currentProduct);
 };
 
 export const updateProduct = async (productInfo) => {
+  console.log(productInfo);
   return await fetch(
     `http://localhost:3000/products/${state.currentProduct.id}`,
     {
@@ -66,7 +67,9 @@ export const updateProduct = async (productInfo) => {
       },
       body: JSON.stringify({
         name: productInfo.productName,
+        imageUrl: productInfo.productImage,
         price: productInfo.productPrice,
+        alt: "Product",
         description: productInfo.productDescription,
       }),
     }

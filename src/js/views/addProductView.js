@@ -10,6 +10,7 @@ class AddProduct {
   };
 
   #formEdit = {
+    productImage: "",
     productName: "",
     productPrice: "",
     productDescription: "",
@@ -98,33 +99,34 @@ class AddProduct {
     let price = document.querySelector(".price");
     let description = document.querySelector(".description");
 
-    console.log(
-      Object.values(this.#formEdit).every((property) => property === "")
-    );
-
     formAddProduct.addEventListener("submit", (event) => {
       event.preventDefault();
       if (Object.values(this.#formEdit).every((property) => property === "")) {
-        this.#formData.productName = name.value;
-        this.#formData.productPrice = price.value;
-        this.#formData.productDescription = description.value;
-        create(this.#formData);
-        alert("Produto adicionado.");
+        if (this.#formData.productImage === "") {
+          alert("Insira uma imagem ao produto.");
+        } else {
+          this.#formData.productName = name.value;
+          this.#formData.productPrice = price.value;
+          this.#formData.productDescription = description.value;
+          create(this.#formData);
+          alert("Produto adicionado.");
+          window.location.href = "#products";
+        }
       } else {
         this.#formEdit.productName = name.value;
         this.#formEdit.productPrice = price.value;
         this.#formEdit.productDescription = description.value;
+        if (this.#formData.productImage != "") {
+          this.#formEdit.productImage = this.#formData.productImage;
+        }
         update(this.#formEdit);
         alert("Produto atualizado.");
+        window.location.href = "#products";
       }
 
-      name.value = "";
-      price.value = "";
-      description.value = "";
       dragStatus.innerText = "Arraste para adicionar uma imagem para o produto";
       dragForm.classList.remove("form-drag--active");
       uploadLabelEl.innerText = "Procure no seu computador";
-      window.location.href = "#products";
     });
   }
 
@@ -132,16 +134,22 @@ class AddProduct {
     let name = document.querySelector(".name");
     let price = document.querySelector(".price");
     let description = document.querySelector(".description");
+    let dragForm = document.querySelector(".form-drag");
 
     if (!data.name && !data.price && !data.description) return;
 
     name.value = data.name;
     price.value = data.price;
     description.value = data.description;
+    dragForm.insertAdjacentHTML(
+      "afterbegin",
+      `<img class="imageUrl" src=${data.imageUrl} alt="Product">`
+    );
 
     this.#formEdit.productName = name.value;
     this.#formEdit.productPrice = price.value;
     this.#formEdit.productDescription = description.value;
+    this.#formEdit.productImage = data.imageUrl;
   }
 
   addHandlerRender(handler) {
