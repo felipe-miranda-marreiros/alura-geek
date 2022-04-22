@@ -5,6 +5,8 @@ class Contact {
     const mensagem = document.getElementById("mensagem");
     const formNome = document.querySelector(".footer__form-item");
     const formMensagem = document.querySelector(".footer__form-message");
+    const popup = document.querySelector(".popup-success");
+    const overlay = document.querySelector(".overlay");
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -18,6 +20,17 @@ class Contact {
         formMensagem.classList.add("invalid-input-message");
       } else {
         formMensagem.classList.remove("invalid-input-message");
+      }
+
+      if (nome.value && mensagem.value) {
+        nome.value = "";
+        mensagem.value = "";
+        popup.classList.remove("popup-success--hidden");
+        overlay.classList.remove("popup-success--hidden");
+        setTimeout(() => {
+          popup.classList.add("popup-success--hidden");
+          overlay.classList.add("popup-success--hidden");
+        }, 3000);
       }
     });
   }
