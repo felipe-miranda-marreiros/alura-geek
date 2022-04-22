@@ -79,8 +79,8 @@ textarea {
 }
 .navbar__container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 12px;
   padding-block: 32px;
 }
 .navbar__content {
@@ -92,6 +92,7 @@ textarea {
   display: flex;
   align-items: center;
   gap: 5px;
+  width: 100%;
 }
 .navbar__content-logo-text {
   color: var(--blue);
@@ -108,12 +109,17 @@ textarea {
   color: var(--blue);
   font-weight: var(--fw-400);
   font-size: var(--fs-500);
-  padding: 12px 65px;
+  padding: 12px 25px;
   cursor: pointer;
   transition: background-color 300ms ease-out;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 .navbar__btn-login:hover {
   background-color: var(--blue-light);
+}
+.navbar__form {
+  flex-basis: 393px;
 }
 .navbar__content-search {
   position: relative;
@@ -123,7 +129,6 @@ textarea {
   background-color: var(--black-light);
   border-radius: 20px;
   padding: 12px 40px 16px 16px;
-  width: 393px;
 }
 .navbar__content-search-input::placeholder {
   color: var(--black-medium);
@@ -135,9 +140,10 @@ textarea {
 }
 .navbar__content-search-icon {
   position: absolute;
-  right: 20px;
-  top: 13px;
   color: var(--black-medium);
+  right: inherit;
+  bottom: 50%;
+  transform: translate(-200%, 50%);
   width: 17px;
   height: 17px;
 }
@@ -526,7 +532,7 @@ li > input {
   content: "Mensagem não pode ser em branco.";
   position: absolute;
   right: 0;
-  top: -17px;
+  top: -110%;
   font-size: clamp(12px, 3vw, var(--fs-300));
   font-weight: var(--fw-700);
   color: rgba(235, 39, 39, 0.849);
@@ -570,7 +576,7 @@ input[type="number"] {
     padding-inline: 32px;
   }
 }
-@media only screen and (max-width: 880px) {
+/* @media only screen and (max-width: 880px) {
   .navbar__content-search-input {
     max-width: 340px;
   }
@@ -584,7 +590,7 @@ input[type="number"] {
   .navbar__content-search-input {
     max-width: 220px;
   }
-}
+} */
 @media only screen and (max-width: 768px) {
   .footer__container {
     row-gap: 26px;
@@ -597,6 +603,9 @@ input[type="number"] {
     margin-left: 94px;
     margin-top: -71px;
   }
+  .navbar__content-logo-text {
+    font-size: var(--fs-500);
+  }
   .item--6,
   .item--5,
   .item--9,
@@ -604,6 +613,9 @@ input[type="number"] {
   .item--17,
   .item--18 {
     display: none;
+  }
+  .navbar__form {
+    flex-basis: 272px;
   }
   .products-section__container {
     grid-template-columns: repeat(4, 1fr);
@@ -629,14 +641,12 @@ input[type="number"] {
   }
 }
 @media only screen and (max-width: 700px) {
-  .navbar__content-search-input,
-  .navbar__content-logo {
+  .navbar__content-search-input {
     display: none;
   }
   .navbar__content-search-icon {
-    position: static;
-    margin-top: 8px;
-    order: -1;
+    left: 60%;
+    transform: translate(-50%, 50%);
     width: 1.5rem;
     height: 1.5rem;
   }
@@ -703,6 +713,14 @@ input[type="number"] {
   .upload-label {
     margin: 0;
     order: 2;
+  }
+  .navbar__form {
+    order: 1;
+    max-width: 100px;
+  }
+  .navbar__btn-login {
+    padding: 12px 40px;
+    margin-left: 50px;
   }
 }
 @media only screen and (max-width: 480px) {
