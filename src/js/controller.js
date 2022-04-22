@@ -35,10 +35,7 @@ const controlAllProducts = async () => {
     model.state.products,
     window.localStorage.getItem("admin")
   );
-  const btnAddProduct = document.querySelector(".products-section__btn--add");
-  if (window.localStorage.getItem("admin"))
-    btnAddProduct.classList.remove("hidden");
-
+  adminView.adminOptions();
   adminView.deleteProduct(model.deleteProduct);
   adminView.editProduct(model.editProduct);
 };

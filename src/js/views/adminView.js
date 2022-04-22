@@ -16,7 +16,6 @@ class Admin {
       if (event.target.className.includes("admin-menu__delete")) {
         const id = event.target.getAttribute("data-id");
         deleteCurrentProduct(id);
-        window.location.reload();
       }
     });
   }
@@ -30,6 +29,11 @@ class Admin {
         }, 500);
       }
     });
+  }
+  adminOptions() {
+    const btnAddProduct = document.querySelector(".products-section__btn--add");
+    if (window.localStorage.getItem("admin"))
+      btnAddProduct.classList.remove("hidden");
   }
 }
 

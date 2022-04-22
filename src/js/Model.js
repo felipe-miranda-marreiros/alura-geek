@@ -41,10 +41,17 @@ export const loadLoginData = async () => {
 };
 
 export const deleteProduct = async (id) => {
-  if (!id) return;
-  return await fetch(`http://localhost:3000/products/${+id}`, {
-    method: "DELETE",
-  });
+  try {
+    if (!id) return;
+
+    const response = await fetch(`http://localhost:3000/products/${+id}`, {
+      method: "DELETE",
+    });
+
+    if (response.status === 200) window.location.reload();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const editProduct = async (id) => {
@@ -53,27 +60,22 @@ export const editProduct = async (id) => {
   const response = await fetch(`http://localhost:3000/products/${productId}`);
   const data = await response.json();
   state.currentProduct = data;
-  console.log(state.currentProduct);
 };
 
 export const updateProduct = async (productInfo) => {
-  console.log(productInfo);
-  return await fetch(
-    `http://localhost:3000/products/${state.currentProduct.id}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: productInfo.productName,
-        imageUrl: productInfo.productImage,
-        price: productInfo.productPrice,
-        alt: "Product",
-        description: productInfo.productDescription,
-      }),
-    }
-  );
+  await fetch(`http://localhost:3000/products/${state.currentProduct.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: productInfo.productName,
+      imageUrl: productInfo.productImage,
+      price: productInfo.productPrice,
+      alt: "Product",
+      description: productInfo.productDescription,
+    }),
+  });
 };
 
 export const createNewProduct = async (productInfo) => {
