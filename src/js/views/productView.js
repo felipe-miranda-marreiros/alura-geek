@@ -22,7 +22,8 @@ class ProductView {
         } else if (
           !window.location.href.includes("#products") &&
           !window.location.href.includes("#login") &&
-          !window.location.href.includes("#addproduct")
+          !window.location.href.includes("#addproduct") &&
+          !window.location.href.includes("#consoles")
         ) {
           handler.controlProductDescription();
         }
@@ -38,7 +39,7 @@ class ProductView {
         <p class="hero__content-paragraph">
           Produtos selecionados com 33% de desconto
         </p>
-        <a class="hero__content-btn btn" href="#home">Ver Consoles</a>
+        <a class="hero__content-btn btn" href="#consoles">Ver Consoles</a>
       </div>
     </header>
       <div class="all-products__container container">

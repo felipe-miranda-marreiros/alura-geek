@@ -6,6 +6,7 @@ import loginView from "./views/loginView.js";
 import addProductView from "./views/addProductView.js";
 import adminView from "./views/adminView.js";
 import contactView from "./views/contactView.js";
+import consolesView from "./views/consolesView.js";
 
 const controlProductDescription = async () => {
   try {
@@ -77,6 +78,11 @@ const controlAdminAccess = () => {
   adminView.render(window.localStorage.getItem("admin"));
 };
 
+const controlConsoles = async () => {
+  const consoles = await model.filteredSections("Consoles");
+  consolesView.render(consoles);
+};
+
 const controlContact = () => {
   contactView.contactForm();
 };
@@ -90,6 +96,7 @@ const init = () => {
   allProductsView.addHandlerRender(controlAllProducts);
   loginView.addHandlerRender(controlLogin);
   addProductView.addHandlerRender(controlAddProduct);
+  consolesView.addHandlerRender(controlConsoles);
   controlAdminAccess();
   controlContact();
 };
