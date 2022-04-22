@@ -72,18 +72,20 @@
               name="nome"
               id="nome"
               class="footer__form-input input-item"
+              maxlength="40"
+              minlength="1"
             />
           </div>
-          <div>
+          <div class="footer__form-message">
             <label for="mensagem" class="footer__form-label label-textarea"
               >Escreva sua mensagem</label
             >
             <textarea
               name="mensagem"
               id="mensagem"
-              cols="30"
-              rows="10"
               class="footer__form-input textarea-item"
+              minlength="1"
+              maxlength="120"
             ></textarea>
           </div>
           <button class="footer__form-btn btn">Enviar mensagem</button>

@@ -509,6 +509,27 @@ li > input {
   position: absolute;
   bottom: -5%;
 }
+.invalid-input-name::after {
+  content: "Nome não pode ser em branco.";
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: clamp(12px, 3vw, var(--fs-300));
+  font-weight: var(--fw-700);
+  color: rgba(235, 39, 39, 0.849);
+}
+.invalid-input-message {
+  position: relative;
+}
+.invalid-input-message::after {
+  content: "Mensagem não pode ser em branco.";
+  position: absolute;
+  right: 0;
+  top: -17px;
+  font-size: clamp(12px, 3vw, var(--fs-300));
+  font-weight: var(--fw-700);
+  color: rgba(235, 39, 39, 0.849);
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

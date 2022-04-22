@@ -5,6 +5,7 @@ import allProductsView from "./views/allProductsView.js";
 import loginView from "./views/loginView.js";
 import addProductView from "./views/addProductView.js";
 import adminView from "./views/adminView.js";
+import contactView from "./views/contactView.js";
 
 const controlProductDescription = async () => {
   try {
@@ -75,8 +76,10 @@ const controlAddProduct = () => {
 const controlAdminAccess = () => {
   adminView.render(window.localStorage.getItem("admin"));
 };
-const controlProductOptions = () => {};
 
+const controlContact = () => {
+  contactView.contactForm();
+};
 const productControllers = {
   controlProducts,
   controlProductDescription,
@@ -88,7 +91,7 @@ const init = () => {
   loginView.addHandlerRender(controlLogin);
   addProductView.addHandlerRender(controlAddProduct);
   controlAdminAccess();
-  controlProductOptions();
+  controlContact();
 };
 
 init();
